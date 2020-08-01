@@ -1,4 +1,3 @@
-
 #importation of relevant modules
 #-------------------------------------------------------------------------------------
 from datetime import datetime
@@ -8,7 +7,6 @@ import csv
 #-------------------------------------------------------------------------------------
 print("""
     Welcome to time tracking and wages calculator!!!
-
     To start a consultation session: Enter 'START'
     To stop a consultation session : Enter 'STOP'
     To quit the program:             Enter 'QUIT'
@@ -20,12 +18,11 @@ print("""
 command =""
 start =False
 attempts = 0
-calc_summary = []
 allowed_attempts = 4
 
 #Main while loop
 #-------------------------------------------------------------------------------------
-while allowed_attempts>attempts:
+while (allowed_attempts>attempts) | (command == "start"):
     command= input("""
 Enter 'START' or 'STOP' or 'QUIT' to start/stop/quit a session >""").lower()
     attempts += 1
@@ -64,12 +61,12 @@ Enter 'START' or 'STOP' or 'QUIT' to start/stop/quit a session >""").lower()
                            'a', newline='\r\n')
             obj = csv.writer(csvfile, delimiter= " ")
             obj.writerows(calc_summary)
+            break
     elif command == "help":
             print("""
     This program computes the total amount made during
     a consultation session, the required user inputs
     are as follows:
-
     To start a consultation session: Enter 'START'
     To stop a consultation session : Enter 'STOP'
     To quit the program:             Enter 'QUIT'
@@ -82,4 +79,3 @@ Enter 'START' or 'STOP' or 'QUIT' to start/stop/quit a session >""").lower()
          print('Too many invalid attempts or wrong user inputs')
 
 #Program End
-#-------------------------------------------------------------------------------------

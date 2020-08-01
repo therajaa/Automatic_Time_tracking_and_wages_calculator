@@ -48,7 +48,8 @@ Enter 'START' or 'STOP' or 'QUIT' to start/stop/quit a session >""").lower()
             elapsed_time = abs(stop_datetime - start_datetime).total_seconds() / 3600
             amount_made = round(elapsed_time*5,2)
             calc_summary = [("CALCULATION-SUMMARY: "+ str(start_datetime.date())), ("Start_DateTime:" + str(start_datetime)),
-                ("Stop_DateTime:" +str(stop_datetime)), "Amount_made: $" + str(amount_made)]
+                ("Stop_DateTime:" +str(stop_datetime)), "Session_duration:" + str(round(elapsed_time,3))  + "hours", 
+                "Amount_made: $" + str(amount_made)]
             print("Consultation start date and time:" +' ' + str(start_datetime))
             print("Consultation stop date and time: " + str(stop_datetime))
             print("Session duration: " + " " + str(round(elapsed_time,3)) + " " + "hours")

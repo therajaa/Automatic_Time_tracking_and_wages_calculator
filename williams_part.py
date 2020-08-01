@@ -58,3 +58,29 @@ Enter 'START' or 'STOP' or 'QUIT' to start/stop/quit a session >""").lower()
             print("---------------------------------------------------------------------")
             print ("Amount of money made: " + " " + "$" + str( amount_made))
             print("---------------------------------------------------------------------")
+    elif command == "help":
+            print("""
+    This program computes the total amount made during 
+    a consultation session, the required user inputs 
+    are as follows:
+    
+    To start a consultation session: Enter 'START' 
+    To stop a consultation session : Enter 'STOP' 
+    To quit the program:             Enter 'QUIT'
+    To get detailed information:     Enter 'HELP'
+            """)
+    elif command == "quit":
+        print("You quit")
+        break
+    else:
+         print('Too many invalid attempts or wrong user inputs')
+
+#Saving output to .csv file
+#-------------------------------------------------------------------------------------
+csvfile = open('time_tracking_wages_summary.csv',
+               'a', newline='\r\n')
+obj = csv.writer(csvfile, delimiter= " ")
+obj.writerows(calc_summary)
+
+#Program End
+#-------------------------------------------------------------------------------------
